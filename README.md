@@ -1,1 +1,1 @@
-# Simple App for tracking the Coronavirus pandemic
+# Simple App for tracking the coronavirus pandemic

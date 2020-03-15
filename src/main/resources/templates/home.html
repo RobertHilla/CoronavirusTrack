@@ -5,24 +5,37 @@
 <head>
     <title>Coronovirus Tracker Application</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <body>
+<h1>Coronovirus Tracker Application</h1>
+<p>Tracks all people with desease on the whole globe</p>
+<div class="jumbotron">
+    <p class="lead">Total cases reported of today</p>
+    <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+    <hr class="my-4">
+    <p class="lead">Total cases reported from yesterday</p>
+    <h1 class="display-4" th:text="${totalNewCases}"></h1>
 
-<p th:text="${testName}"></p>
+</div>
 
-<table>
-    <tr>
-        <th>State</th>
-        <th>Country</th>
-        <th>Total cases reported</th>
-    </tr>
-    <tr th:each="locationStat : ${locationStats}">
-        <td th:text="${locationStat.state}"></td>
-        <td th:text="${locationStat.country}"></td>
-        <td th:text="${locationStat.latestTotalCases}"></td>
-    </tr>
-</table>
+<div class="container">
+    <table class="table">
+        <tr>
+            <th>State</th>
+            <th>Country</th>
+            <th>Total cases reported</th>
+            <th>Difference between last day</th>
+        </tr>
+        <tr th:each="locationStat : ${locationStats}">
+            <td th:text="${locationStat.state}"></td>
+            <td th:text="${locationStat.country}"></td>
+            <td th:text="${locationStat.latestTotalCases}"></td>
+            <td th:text="${locationStat.diffFromPrevDay}"></td>
+        </tr>
+    </table>
+</div>
 
 </body>
 
